@@ -1,0 +1,30 @@
+'.source.js':
+  'Filter':
+    'prefix': '_f'
+    'body': """
+      (function() {
+          'use strict';
+
+          var app = angular.module('nova');
+          var filterId = '${1:name}Filter';
+
+          /**
+          * @module filters
+          **/
+          app.filter(filterId, filter);
+
+          /**
+          * ${2:description}
+          *
+          * @module nova
+          * @submodule filters
+          * @class ${1:name}Filter
+          * @constructor
+          **/
+          function filter() {
+              return function (input) {
+                  ${3:filter body}
+              };
+          }
+      })();
+      """

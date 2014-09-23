@@ -1,0 +1,13 @@
+'.source.js':
+  'Private Method':
+    'prefix': '_pm'
+    'body': """
+      /**
+      * ${1:description}
+      *
+      * @private
+      * @method _${2:name}
+      **/
+      function _${2:name}() {
+      }
+      """

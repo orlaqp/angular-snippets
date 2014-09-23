@@ -1,0 +1,103 @@
+'.source.js':
+  'Factory':
+    'prefix': '_fe'
+    'body': """
+      (function() {
+
+        'use strict';
+
+        var app = angular.module('nova'),
+            factoryId = '${1:name}Factory';
+
+        app.factory(factoryId, ['config', 'Restangular', '$q', factory]);
+
+        function factory(config, restangular, $q) {
+
+          function ${2:entity}() {
+            this._initialize();
+          }
+
+          ${2:entity}.prototype = {
+
+            ///////////////////////////////////////////////
+            // Public Members                            //
+            ///////////////////////////////////////////////
+
+            ///////////////////////////////////////////////
+            // Private Members                           //
+            ///////////////////////////////////////////////
+
+            /**
+            * Defines base end point for the server calls
+            *
+            * @private
+            * @property
+            **/
+            _baseEndpoint: config.endpoints.inventory,
+            /**
+            * Initilize entity
+            *
+            * @private
+            * @method _initialize
+            * @param {parameter} this can be in three different forms: id, object or undefined
+            **/
+            _initialize function(parameter) {
+              var d = $q.defer(),
+                  id = +parameter;
+
+              // If the user pass an integer as parameter then get the coupon from the server
+              if (id) {
+                this.id = id;
+                this._get${2:entity}ById(this.id).then(function(${2:entity}) {
+                  this.details = ${2:entity};
+                  d.resolve(this);
+                });
+              // if the user pass an object then make get its data and wrap it into the details property
+              } else if (_.isObject(parameter)) {
+                this.details = parameter;
+              // if it is undefined then create a new object
+              } else if (!parameter) {
+                // initilize default values for a new coupon
+                $q.when(this);
+              }
+
+              return d.promise;
+            },
+            /**
+            * Returns a coupons object from a raw data object reveived from the server
+            *
+            * @private
+            * @method _getFromRawData
+            * @param {rawData} coupon raw data
+            **/
+            _getFromRawData: function(rawData) {
+              if (!_.isObject(rawData))
+                throw("In order to get a coupon from raw data you need to supply the raw data as an object");
+              return new ${2:entity}(rawData);
+            },
+            /**
+            * Retrieve a ${2:entity} from the server using its id
+            *
+            * @private
+            * @method _get${2:entity}ById
+            **/
+            _get${2:entity}ById: function(id) {
+              return restangular.setBaseUrl(this._baseEndpoint)
+                  .one('${2:entity}s', id)
+                  .get();
+            },
+
+            ///////////////////////////////////////////////
+            // Server Calls                              //
+            ///////////////////////////////////////////////
+
+          }
+
+          return {
+            getNew: function() { return new ${2:entity}(); },
+            getById: function(id) { return new ${2:entity}(id); },
+            getFromRawData: _getFromRawData,
+          }
+        }
+      })();
+      """

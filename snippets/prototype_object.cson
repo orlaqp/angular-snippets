@@ -1,0 +1,13 @@
+'.source.js':
+  'Prototype Method':
+    'prefix': '_protoo'
+    'body': """
+      /**
+      * ${1:description}
+      *
+      * @private
+      * @property _${2:name}
+      **/
+      _${2:name}: {
+      },
+      """

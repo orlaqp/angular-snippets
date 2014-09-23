@@ -1,0 +1,9 @@
+'.text.html':
+  'View Container':
+    'prefix': '_vc'
+    'body': """
+      <!-- ${1:container for} -->
+      <div class="container-fluid">
+
+      </div>
+      """

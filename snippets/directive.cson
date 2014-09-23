@@ -1,0 +1,31 @@
+'.source.js':
+  'Private Method':
+    'prefix': '_d'
+    'body': """
+      (function() {
+
+        'use strict';
+
+        var app = angular.module('nova'),
+            directiveId = '${1:directiveName}',
+            controllerId = '${2:controllerName}';
+
+        app.directive(directiveId, [directive]);
+        function directive() {
+          return {
+            restrict: 'E',
+            scope: {
+              options: '='
+            },
+            templateUrl: '',
+            controller: controllerId
+          }
+        }
+
+        app.controller(controllerId, [controller]);
+        function controller() {
+
+        };
+
+      })();
+      """

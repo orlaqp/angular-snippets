@@ -1,0 +1,12 @@
+'.source.js':
+  'Private Method':
+    'prefix': '_pubm'
+    'body': """
+      /**
+      * ${1:description}
+      *
+      * @method ${2:name}
+      **/
+      function ${2:name}() {
+      }
+      """

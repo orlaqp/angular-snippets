@@ -1,0 +1,12 @@
+'.text.html':
+  'Textbox Input':
+    'prefix': '_vtb'
+    'body': """
+      <!-- ${1:description} -->
+      <div class="row">
+        <div class="col-md-12 form-group">
+            <label for="${2:for}">${3:label}</label>
+            <input type="text" class="form-control" id="${2:for}" ng-model="${4:model}" placeholder="${5:placeholder}">
+        </div>
+      </div>
+      """

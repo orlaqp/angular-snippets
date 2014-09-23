@@ -1,0 +1,12 @@
+'.source.js':
+  'Private Method':
+    'prefix': '_sm'
+    'body': """
+      /**
+      * ${1:description}
+      *
+      * @method ${2:name}
+      **/
+      $scope.${2:name} = function() {
+      }
+      """

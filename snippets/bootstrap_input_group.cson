@@ -1,0 +1,10 @@
+'.text.html':
+  'Textbox Input':
+    'prefix': '_vig'
+    'body': """
+      <!-- ${1:description} -->
+      <div class="input-group">
+        <span class="input-group-addon">${2:addon}</span>
+        <input type="text" class="form-control" ng-model="${3:model}" placeholder="${4:placeholder}">
+      </div>
+      """

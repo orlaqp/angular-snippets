@@ -1,0 +1,14 @@
+{
+  "name": "angularjs-snippets",
+  "main": "./lib/angularjs-snippets",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "activationEvents": ["angularjs-snippets:toggle"],
+  "repository": "https://github.com/atom/angularjs-snippets",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}

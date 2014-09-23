@@ -1,0 +1,101 @@
+'.source.js':
+  'Factory':
+    'prefix': '_fp'
+    'body': """
+      (function() {
+
+        'use strict';
+
+        var app = angular.module('nova'),
+            factoryId = '${1:name}sFactory';
+
+        app.factory(factoryId, ['config', 'Restangular', '$q', factory]);
+
+        function factory(config, restangular, $q) {
+
+          var baseUrl = config.endpoints.${2:inventory} + "/${3:baseUrl}";
+
+          function ${1:name}s() {
+            this._initialize();
+          }
+
+          ${1:name}s.prototype = {
+
+            ///////////////////////////////////////////////
+            // Public Methods                            //
+            ///////////////////////////////////////////////
+
+            _cache: [],
+
+            ///////////////////////////////////////////////
+            // Public Methods                            //
+            ///////////////////////////////////////////////
+
+            /**
+            * Search for ${1:name}s
+            *
+            * @method search
+            **/
+            search: function(payload) {
+              return this._search(payload);
+            },
+
+            ///////////////////////////////////////////////
+            // Private Methods                           //
+            ///////////////////////////////////////////////
+
+            /**
+            * Initialize ${1:name}s
+            *
+            * @private
+            * @method _initialize
+            **/
+            _initialize: function() {
+
+            },
+
+
+            ///////////////////////////////////////////////
+            // Server Calls                              //
+            ///////////////////////////////////////////////
+
+            /**
+            * Call server search
+            *
+            * @private
+            * @method _search
+            * @param {payload} search parameters
+            **/
+            _search: function() {
+              var d = $q.defer();
+
+              restangular.setBaseUrl(baseUrl)
+                .one('${1:name}s')
+                .get(payload).then(function(response) {
+                  // wrap the results into ${1:name}'s objects
+                  _cache = [];
+                  var promises = _.map(response.results, function(raw${1:name}) {
+                    return ${1:name}Factory.getFromRawData(raw${1:name}).then(function(${1:name}) {
+                      _cache.push(${1:name});
+                    });
+                  });
+                  $q.all(_cache).then(function() {
+                    d.resolve({
+                      total: response.total,
+                      results: _cache
+                    });
+                  });
+
+                });
+
+              return d.promise;
+            },
+
+          }
+
+          return {
+            ${1:name}s: ${1:name}s
+          }
+        }
+      })();
+      """
