@@ -9,17 +9,17 @@
         var app = angular.module('nova'),
             factoryId = '${1:name}sFactory';
 
-        app.factory(factoryId, ['config', 'Restangular', '$q', factory]);
+        app.factory(factoryId, ['config', 'Restangular', '$q', '${1:name}Factory', factory]);
 
-        function factory(config, restangular, $q) {
+        function factory(config, restangular, $q, ${1:name}Factory) {
 
-          var baseUrl = config.endpoints.${2:inventory} + "/${1:name}";
+          var baseUrl = config.endpoints.${2:inventory};
 
-          function ${3:class}() {
+          function ${4:class}() {
             this._initialize();
           }
 
-          ${3:class}.prototype = {
+          ${4:class}.prototype = {
 
             ///////////////////////////////////////////////
             // Public Methods                            //
@@ -76,23 +76,23 @@
             * @method _search
             * @param {payload} search parameters
             **/
-            _search: function() {
-              var d = $q.defer();
+            _search: function(payload) {
+              var that = this, d = $q.defer();
 
               restangular.setBaseUrl(baseUrl)
                 .one('${1:name}s')
                 .get(payload).then(function(response) {
                   // wrap the results into ${1:name}'s objects
-                  this._cache = [];
+                  that._cache = [];
                   var promises = _.map(response.results, function(raw${1:name}) {
-                    return new ${1:name}Factory.${1:name}(raw${1:name}).then(function(${1:name}) {
-                      this._cache.push(${1:name});
+                    return new ${1:name}Factory.${3:entity}(raw${1:name}).then(function(${1:name}) {
+                      that._cache.push(${1:name});
                     });
                   });
-                  $q.all(this._cache).then(function() {
+                  $q.all(that._cache).then(function() {
                     d.resolve({
                       total: response.total,
-                      results: this._cache
+                      results: that._cache
                     });
                   });
 
@@ -104,7 +104,7 @@
           }
 
           return {
-            ${3:class}: ${3:class}
+            ${4:class}: ${4:class}
           }
         }
       })();

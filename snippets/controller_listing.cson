@@ -7,7 +7,7 @@
         'use strict';
 
         var app = angular.module('nova'),
-            controllerId = '${1:name}Controller';
+            controllerId = '${1:name}ListingController';
 
         app.controller(controllerId, ['$scope', 'config', 'common', 'events', '${2:entity}Factory', controller]);
 

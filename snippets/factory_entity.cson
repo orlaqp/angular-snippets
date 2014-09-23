@@ -14,7 +14,7 @@
         function factory(config, restangular, $q) {
 
           function ${2:entity}() {
-            this._initialize();
+            return this._initialize();
           }
 
           ${2:entity}.prototype = {
@@ -62,7 +62,7 @@
             * @method _initialize
             * @param {parameter} this can be in three different forms: id, object or no parameters (undefined)
             **/
-            _initialize function(parameter) {
+            _initialize: function(parameter) {
               var d = $q.defer(),
                   id = +parameter;
 
@@ -149,7 +149,7 @@
           }
 
           return {
-            ${2:entity} : ${2:entity} 
+            ${2:entity} : ${2:entity}
           }
         }
       })();
