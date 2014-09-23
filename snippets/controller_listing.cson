@@ -1,0 +1,62 @@
+'.source.js':
+  'Controller Stub':
+    'prefix': '_cl'
+    'body': """
+      (function() {
+
+        'use strict';
+
+        var app = angular.module('nova'),
+            controllerId = '${1:name}Controller';
+
+        app.controller(controllerId, ['$scope', 'config', 'common', 'events', '${2:entity}Factory', controller]);
+
+          function controller($scope, config, common, events, ${2:entity}Factory) {
+
+          // initialize controller
+          _initialize();
+
+          ///////////////////////////////////////////////
+          // Event handlers                            //
+          ///////////////////////////////////////////////
+
+
+          ///////////////////////////////////////////////
+          // Scope Methods                             //
+          ///////////////////////////////////////////////
+
+
+          ///////////////////////////////////////////////
+          // Private Methods                           //
+          ///////////////////////////////////////////////
+
+          /**
+          * Initialize controller
+          *
+          * @private
+          * @method _initialize
+          **/
+          function _initialize() {
+            _prepareScope();
+            common.$broadcast(events.controllerActivateSuccess, { controllerId: controllerId });
+          }
+          /**
+          * Prepare initial values for the controller's scope
+          *
+          * @private
+          * @method _prepareScope
+          **/
+          function _prepareScope() {
+            $scope.${2:entity} = new ${2:entity}Factory.${1:name}();
+
+            $scope.${3:optionsName}Table = {
+              // enableSelection: true,
+              // filterContext: undefined,
+              // batchContext: undefined,
+              getData: function(opts) { return $scope.${2:entity}.search(opts); }
+            }
+
+          }
+        }
+      })();
+      """

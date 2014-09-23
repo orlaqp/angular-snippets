@@ -23,6 +23,27 @@
             // Public Members                            //
             ///////////////////////////////////////////////
 
+            /**
+            * Save ${2:name} changes
+            *
+            * @method save
+            **/
+            save: function() {
+              if (this.id) {
+                return this._update${2:entity}();
+              } else {
+                return this._create${2:entity}();
+              }
+            },
+            /**
+            * Remove ${2:name}
+            *
+            * @method remove
+            **/
+            remove: function() {
+              return this._remove${2:entity}();
+            },
+
             ///////////////////////////////////////////////
             // Private Members                           //
             ///////////////////////////////////////////////
@@ -35,21 +56,21 @@
             **/
             _baseEndpoint: config.endpoints.inventory,
             /**
-            * Initilize entity
+            * Initialize entity
             *
             * @private
             * @method _initialize
-            * @param {parameter} this can be in three different forms: id, object or undefined
+            * @param {parameter} this can be in three different forms: id, object or no parameters (undefined)
             **/
             _initialize function(parameter) {
               var d = $q.defer(),
                   id = +parameter;
 
-              // If the user pass an integer as parameter then get the coupon from the server
+              // If the user pass an integer as parameter then get the ${1:name} from the server
               if (id) {
                 this.id = id;
-                this._get${2:entity}ById(this.id).then(function(${2:entity}) {
-                  this.details = ${2:entity};
+                this._get${2:entity}ById(this.id).then(function(${1:name}) {
+                  this.details = ${1:name};
                   d.resolve(this);
                 });
               // if the user pass an object then make get its data and wrap it into the details property
@@ -64,39 +85,71 @@
               return d.promise;
             },
             /**
-            * Returns a coupons object from a raw data object reveived from the server
+            * Returns a ${2:entity} object from a raw data object received from the server
             *
             * @private
             * @method _getFromRawData
-            * @param {rawData} coupon raw data
+            * @param {rawData} ${1:name}'s raw data
             **/
             _getFromRawData: function(rawData) {
               if (!_.isObject(rawData))
-                throw("In order to get a coupon from raw data you need to supply the raw data as an object");
+                throw("In order to get a ${2:entity} from raw data you need to supply the raw data as an object");
               return new ${2:entity}(rawData);
-            },
-            /**
-            * Retrieve a ${2:entity} from the server using its id
-            *
-            * @private
-            * @method _get${2:entity}ById
-            **/
-            _get${2:entity}ById: function(id) {
-              return restangular.setBaseUrl(this._baseEndpoint)
-                  .one('${2:entity}s', id)
-                  .get();
             },
 
             ///////////////////////////////////////////////
             // Server Calls                              //
             ///////////////////////////////////////////////
 
+            /**
+            * Retrieve a ${1:name} from the server using its id
+            *
+            * @private
+            * @method _get${2:entity}ById
+            **/
+            _get${2:entity}ById: function(id) {
+              return restangular.setBaseUrl(this._baseEndpoint)
+                  .one('${1:name}s', id)
+                  .get();
+            },
+            /**
+            * Create new ${2:entity}
+            *
+            * @private
+            * @method _create${2:entity}
+            **/
+            _create${2:entity}: function() {
+              return restangular.setBaseUrl(this._baseEndpoint)
+                  .all('${1:name}s')
+                  .post(this.details);
+            },
+            /**
+            * Update an existent ${1:name}
+            *
+            * @private
+            * @method _update${2:entity}
+            **/
+            _update${2:entity}: function() {
+              return restangular.setBaseUrl(this._baseEndpoint)
+                      .one('${1:name}s', this.id)
+                      .customPUT(this.details);
+            },
+            /**
+            * Remove ${1:name}
+            *
+            * @private
+            * @method _remove${2:entity}
+            **/
+            _remove${2:entity}: function() {
+              return restangular.setBaseUrl(this._baseEndpoint)
+                      .one('${1:name}s', this.id)
+                      .remove();
+            },
+
           }
 
           return {
-            getNew: function() { return new ${2:entity}(); },
-            getById: function(id) { return new ${2:entity}(id); },
-            getFromRawData: _getFromRawData,
+            ${2:entity} : ${2:entity} 
           }
         }
       })();
