@@ -1,0 +1,97 @@
+'.source.js':
+  'Controller Stub':
+    'prefix': '_ce'
+    'body': """
+      (function() {
+
+        'use strict';
+
+        var app = angular.module('nova'),
+            controllerId = '${1:entity}Controller';
+
+        app.controller(controllerId, ['$scope', '$state', 'config', 'common', 'events', '${2:name}Factory', controller]);
+
+          function controller($scope, $state, config, common, events, ${2:name}Factory) {
+
+          // initialize controller
+          _initialize();
+
+          ///////////////////////////////////////////////
+          // Event handlers                            //
+          ///////////////////////////////////////////////
+
+
+          ///////////////////////////////////////////////
+          // Scope Methods                             //
+          ///////////////////////////////////////////////
+
+          /**
+          * Save ${2:name} changes
+          *
+          * @method save
+          **/
+          $scope.save = function() {
+            $scope.${2:name}.save().then(function() {
+              $state.transitionTo('${2:name}s.listing');
+            });
+          }
+
+          /**
+          * Cancel coupon changes
+          *
+          * @method cancel
+          **/
+          $scope.cancel = function() {
+            modalFactory.open('Discard ${2:name} changes', '', ' Are you sure you want to discard ${2:name} changes?')
+              .then(function() {
+                $state.transitionTo('${2:name}s.listing');
+              });
+          }
+
+          ///////////////////////////////////////////////
+          // Private Methods                           //
+          ///////////////////////////////////////////////
+
+          /**
+          * Initialize controller
+          *
+          * @private
+          * @method _initialize
+          **/
+          function _initialize() {
+            _prepareScope();
+            common.wait([_resolve${1:entity}()], controllerId);
+          }
+          /**
+          * Prepare initial values for the controller's scope
+          *
+          * @private
+          * @method _prepareScope
+          **/
+          function _prepareScope() {
+          }
+          /**
+          * This function will return the right ${2:name} instance depending on which state we are: ${2:name}s.new or ${2:name}s.edit
+          *
+          * @private
+          * @method _resolve${1:entity}
+          **/
+          function _resolve${1:entity}() {
+            // depending on the state
+            var promise;
+            var state = $state.current;
+            if (state.name === '${2:name}s.new') {
+              promise = new ${2:name}Factory.${1:entity}();
+            } else if (state.name === 'coupons.edit') {
+              promise = new ${2:name}Factory.${1:entity}($stateParams.id);
+            }
+
+            promise.then(function(${2:name}) {
+              $scope.${2:name} = ${2:name};
+            });
+
+            return promise;
+          }
+        }
+      })();
+      """

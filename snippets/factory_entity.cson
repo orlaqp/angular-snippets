@@ -13,8 +13,10 @@
 
         function factory(config, restangular, $q) {
 
-          function ${2:entity}() {
-            return this._initialize();
+          var defaultValues = {};
+
+          function ${2:entity}(parameter) {
+            return this._initialize(parameter);
           }
 
           ${2:entity}.prototype = {
@@ -76,10 +78,15 @@
               // if the user pass an object then make get its data and wrap it into the details property
               } else if (_.isObject(parameter)) {
                 this.details = parameter;
+                // we need to move the id outside the details
+                this.id = parameter.id;
+                delete parameter.id;
+                d.resolve(this);
               // if it is undefined then create a new object
               } else if (!parameter) {
-                // initilize default values for a new coupon
-                $q.when(this);
+                // initialize default values for a new ${1:name}
+                this.details = _.cloneDeep(defaultValues);
+                d.resolve(this);
               }
 
               return d.promise;
