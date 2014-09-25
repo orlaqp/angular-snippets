@@ -1,13 +1,13 @@
 '.source.js':
   'Factory':
-    'prefix': '_fe'
+    'prefix': '_fm'
     'body': """
       (function() {
 
         'use strict';
 
         var app = angular.module('nova'),
-            factoryId = '${1:name}Factory';
+            factoryId = '${1:name}ModelFactory';
 
         app.factory(factoryId, ['config', 'Restangular', '$q', factory]);
 

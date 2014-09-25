@@ -1,17 +1,17 @@
 '.source.js':
   'Factory':
-    'prefix': '_fl'
+    'prefix': '_fc'
     'body': """
       (function() {
 
         'use strict';
 
         var app = angular.module('nova'),
-            factoryId = '${1:name}sFactory';
+            factoryId = '${1:name}CollectionFactory';
 
-        app.factory(factoryId, ['config', 'Restangular', '$q', '${1:name}Factory', factory]);
+        app.factory(factoryId, ['config', 'Restangular', '$q', '${1:name}ModelFactory', factory]);
 
-        function factory(config, restangular, $q, ${1:name}Factory) {
+        function factory(config, restangular, $q, ${1:name}ModelFactory) {
 
           var baseUrl = config.endpoints.${2:inventory};
 
