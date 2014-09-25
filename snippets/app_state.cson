@@ -1,0 +1,64 @@
+'.text.html':
+  'Textbox Input':
+    'prefix': '_s'
+    'body': """
+      ///////////////////////////////
+      //        ${1:feature}       //
+      ///////////////////////////////
+
+      {
+        name: '${2:parent-route}',
+        abstract: true,
+        config: {
+          url: '/${2:parent-route}',
+          template: '<ui-view></ui-view>',
+          data: {
+            settings: {
+              displayName: '${3:display-name}'
+            }
+          }
+        }
+      },
+
+      {
+        name: "${2:parent-route}.collection",
+        config: {
+          url: '/listing',
+          templateUrl: '/views/screens/${2:parent-route}/collection.html',
+          controller: '${4:class}CollectionController',
+          data: {
+            settings: {
+              displayName: 'Listing'
+            }
+          }
+        }
+      },
+
+      {
+        name: "${2:parent-route}.new",
+        config: {
+          url: '/new',
+          templateUrl: '/views/screens/${parent-route}/model.html',
+          controller: '${4:class}ModelController',
+          data: {
+            settings: {
+              displayName: 'New'
+            }
+          }
+        }
+      },
+
+      {
+        name: "${2:parent-route}.edit",
+        config: {
+          url: '/:id',
+          templateUrl: '/views/screens/${2:parent-route}/model.html',
+          controller: '${4:class}Controller',
+          data: {
+            settings: {
+              displayName: 'Edit'
+            }
+          }
+        }
+      },
+      """
