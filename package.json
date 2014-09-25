@@ -1,14 +1,15 @@
 {
   "name": "angularjs-snippets",
   "main": "./lib/angularjs-snippets",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A set of common snippets and practices we use to develop our angularjs applications",
-  "activationEvents": ["angularjs-snippets:toggle"],
+  "activationEvents": [
+    "angularjs-snippets:toggle"
+  ],
   "repository": "https://github.com/orlaqp/angular-snippets",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
