@@ -1,5 +1,5 @@
-'.text.html':
-  'Textbox Input':
+'.source.js':
+  'App State':
     'prefix': '_s'
     'body': """
       ///////////////////////////////
