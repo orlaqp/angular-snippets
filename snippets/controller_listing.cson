@@ -1,17 +1,17 @@
 '.source.js':
   'Controller Stub':
-    'prefix': '_cl'
+    'prefix': '_cc'
     'body': """
       (function() {
 
         'use strict';
 
         var app = angular.module('nova'),
-            controllerId = '${1:name}ListingController';
+            controllerId = '${1:name}CollectionController';
 
-        app.controller(controllerId, ['$scope', 'config', 'common', 'events', '${2:entity}Factory', controller]);
+        app.controller(controllerId, ['$scope', 'config', 'common', 'events', '${1:name}CollectionFactory', controller]);
 
-          function controller($scope, config, common, events, ${2:entity}Factory) {
+          function controller($scope, config, common, events, ${1:name}CollectionFactory) {
 
           // initialize controller
           _initialize();
@@ -47,13 +47,13 @@
           * @method _prepareScope
           **/
           function _prepareScope() {
-            $scope.${2:entity} = new ${2:entity}Factory.${1:name}();
+            $scope.${1:name}Collection = new ${1:name}CollectionFactory.${2:entity}();
 
             $scope.${3:optionsName}Table = {
               // enableSelection: true,
               // filterContext: undefined,
               // batchContext: undefined,
-              getData: function(opts) { return $scope.${2:entity}.search(opts); }
+              getData: function(opts) { return $scope.${1:name}Collection.search(opts); }
             }
 
           }
