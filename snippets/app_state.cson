@@ -38,7 +38,7 @@
         name: "${2:parent-route}.new",
         config: {
           url: '/new',
-          templateUrl: '/views/screens/${parent-route}/model.html',
+          templateUrl: '/views/screens/${2:parent-route}/model.html',
           controller: '${4:class}ModelController',
           data: {
             settings: {
@@ -53,7 +53,7 @@
         config: {
           url: '/:id',
           templateUrl: '/views/screens/${2:parent-route}/model.html',
-          controller: '${4:class}Controller',
+          controller: '${4:class}ModelController',
           data: {
             settings: {
               displayName: 'Edit'
