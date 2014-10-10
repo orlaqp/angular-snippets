@@ -1,0 +1,8 @@
+'.source.js':
+  'Describe':
+    'prefix': '_desc'
+    'body': """
+      describe('${1:description}', function() {
+
+      });
+      """

@@ -1,0 +1,111 @@
+'.source.js':
+  'Factory':
+    'prefix': '_fc'
+    'body': """
+      (function() {
+
+        'use strict';
+
+        var app = angular.module('nova'),
+            factoryId = '${1:name}CollectionFactory';
+
+        app.factory(factoryId, ['config', 'Restangular', '$q', '${1:name}ModelFactory', factory]);
+
+        function factory(config, restangular, $q, ${1:name}ModelFactory) {
+
+          var baseUrl = config.endpoints.${2:inventory};
+
+          function ${4:class}() {
+            this._initialize();
+          }
+
+          ${4:class}.prototype = {
+
+            ///////////////////////////////////////////////
+            // Public Methods                            //
+            ///////////////////////////////////////////////
+
+            _cache: [],
+
+            ///////////////////////////////////////////////
+            // Public Methods                            //
+            ///////////////////////////////////////////////
+
+            /**
+            * Search for ${1:name}s
+            *
+            * @method search
+            **/
+            search: function(payload) {
+              return this._search(payload);
+            },
+            /**
+            * Remove a ${1:name}
+            *
+            * @method remove
+            **/
+            remove: function(${1:name}) {
+              ${1:name}.remove().then(function() {
+                _.remove(this._cache, ${1:name});
+              });
+            },
+
+            ///////////////////////////////////////////////
+            // Private Methods                           //
+            ///////////////////////////////////////////////
+
+            /**
+            * Initialize ${1:name}s
+            *
+            * @private
+            * @method _initialize
+            **/
+            _initialize: function() {
+
+            },
+
+
+            ///////////////////////////////////////////////
+            // Server Calls                              //
+            ///////////////////////////////////////////////
+
+            /**
+            * Call server search
+            *
+            * @private
+            * @method _search
+            * @param {payload} search parameters
+            **/
+            _search: function(payload) {
+              var that = this, d = $q.defer();
+
+              restangular.setBaseUrl(baseUrl)
+                .one('${1:name}s')
+                .get(payload).then(function(response) {
+                  // wrap the results into ${1:name}'s objects
+                  that._cache = [];
+                  var promises = _.map(response.results, function(raw${1:name}) {
+                    return new ${1:name}ModelFactory.${3:entity}(raw${1:name}).then(function(${1:name}) {
+                      that._cache.push(${1:name});
+                    });
+                  });
+                  $q.all(that._cache).then(function() {
+                    d.resolve({
+                      total: response.total,
+                      results: that._cache
+                    });
+                  });
+
+                });
+
+              return d.promise;
+            },
+
+          }
+
+          return {
+            ${4:class}: ${4:class}
+          }
+        }
+      })();
+      """

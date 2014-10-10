@@ -1,0 +1,8 @@
+'.source.js':
+  'It':
+    'prefix': '_it'
+    'body': """
+      it('${1:description}', function() {
+
+      });
+      """
