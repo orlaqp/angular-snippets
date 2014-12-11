@@ -17,7 +17,7 @@
 
           function ${2:entity}(parameter) {
             return this._initialize(parameter);
-          }
+          };
 
           ${2:entity}.prototype = {
 

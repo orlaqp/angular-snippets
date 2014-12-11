@@ -39,7 +39,7 @@
           function _initialize() {
             _prepareScope();
             common.$broadcast(events.controllerActivateSuccess, { controllerId: controllerId });
-          }
+          };
           /**
           * Prepare initial values for the controller's scope
           *
@@ -56,7 +56,7 @@
               getData: function(opts) { return $scope.${1:name}Collection.search(opts); }
             }
 
-          }
+          };
         }
       })();
       """

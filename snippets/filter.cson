@@ -16,7 +16,7 @@
           /**
           * ${2:description}
           *
-          * @module nova
+          * @module
           * @submodule filters
           * @class ${1:name}Filter
           * @constructor
@@ -25,6 +25,6 @@
               return function (input) {
                   ${3:filter body}
               };
-          }
+          };
       })();
       """

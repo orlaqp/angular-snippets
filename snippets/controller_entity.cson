@@ -34,7 +34,7 @@
             $scope.${2:name}.save().then(function() {
               $state.transitionTo('${2:name}s.listing');
             });
-          }
+          };
 
           /**
           * Cancel coupon changes
@@ -46,7 +46,7 @@
               .then(function() {
                 $state.transitionTo('${2:name}s.listing');
               });
-          }
+          };
 
           ///////////////////////////////////////////////
           // Private Methods                           //
@@ -61,7 +61,7 @@
           function _initialize() {
             _prepareScope();
             common.wait([_resolve${1:entity}()], controllerId);
-          }
+          };
           /**
           * Prepare initial values for the controller's scope
           *
@@ -69,7 +69,7 @@
           * @method _prepareScope
           **/
           function _prepareScope() {
-          }
+          };
           /**
           * This function will return the right ${2:name} instance depending on which state we are: ${2:name}s.new or ${2:name}s.edit
           *
@@ -91,7 +91,7 @@
             });
 
             return promise;
-          }
+          };
         }
       })();
       """

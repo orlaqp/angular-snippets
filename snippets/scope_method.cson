@@ -8,5 +8,5 @@
       * @method ${2:name}
       **/
       $scope.${2:name} = function() {
-      }
+      };
       """
