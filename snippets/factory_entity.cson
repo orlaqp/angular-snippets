@@ -1,6 +1,6 @@
 '.source.js':
   'Factory':
-    'prefix': '_fm'
+    'prefix': '_fe'
     'body': """
       (function() {
 

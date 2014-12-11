@@ -1,3 +1,10 @@
+## 0.9.0
+
+* Changed _fm to _fe to be consistent with its name
+* Changed _pm to _pf to be consistent with its content
+* Changed _pubm to _pubf to be consistent with its content
+* README updated
+
 ## 0.6.1
 
 Added the following snippets for jasmine:

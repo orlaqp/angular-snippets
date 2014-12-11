@@ -1,5 +1,5 @@
 '.text.html':
-  'Textbox Input':
+  'Dropdown':
     'prefix': '_vdd'
     'body': """
       <!-- ${1:description} -->

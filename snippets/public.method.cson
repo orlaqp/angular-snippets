@@ -1,6 +1,6 @@
 '.source.js':
-  'Private Method':
-    'prefix': '_pubm'
+  'Public Function':
+    'prefix': '_pubf'
     'body': """
       /**
       * ${1:description}
