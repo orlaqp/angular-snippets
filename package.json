@@ -1,7 +1,7 @@
 {
   "name": "angularjs-snippets",
   "main": "./lib/angularjs-snippets",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "A set of common snippets and practices we use to develop our angularjs applications",
   "activationEvents": [
     "angularjs-snippets:toggle"
