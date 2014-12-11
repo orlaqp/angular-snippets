@@ -1,4 +1,4 @@
-``'.source.js':
+'.source.js':
   'Private Method':
     'prefix': '_sm'
     'body': """
