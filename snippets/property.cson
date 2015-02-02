@@ -1,0 +1,10 @@
+'.source.js':
+  'Property Stub':
+    'prefix': '_prop'
+    'body': """
+        var _${1:name} = ${2:initial value};
+        Object.defineProperty(this.details, '${1:name}', {
+            get: function () { return _${1:name}; },
+            set: function (value) { _${1:name} = value; }
+        });
+    """

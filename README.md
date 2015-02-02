@@ -30,6 +30,10 @@ If you are half the lazy I am and you do not like to waste time to typing the sa
 * _pubf -> Public function definition
 * _sm -> Scope method
 
+### Objects
+
+* _prop -> Object.defineProperty default definition
+
 ### Tests (Jasmine)
 
 * _desc -> Describe stub

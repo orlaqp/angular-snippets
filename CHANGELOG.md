@@ -1,3 +1,8 @@
+## 0.9.1
+
+Added property snippet
+`_prop` for Object.defineProperty
+
 ## 0.9.0
 
 * Changed _fm to _fe to be consistent with its name
