@@ -1,4 +1,4 @@
-## 0.9.1
+## 0.11.0
 
 Added property snippet
 `_prop` for Object.defineProperty
