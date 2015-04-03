@@ -1,8 +1,8 @@
 {
   "name": "angularjs-snippets",
   "main": "./lib/angularjs-snippets",
-  "version": "0.10.1",
-  "description": "A set of common snippets and practices we use to develop our angularjs applications",  
+  "version": "0.10.2",
+  "description": "A set of common snippets and practices we use to develop our angularjs applications",
   "repository": "https://github.com/orlaqp/angular-snippets",
   "license": "MIT",
   "engines": {
