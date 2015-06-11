@@ -1,0 +1,33 @@
+'.source.js':
+  'Unit Test Stub':
+    'prefix': '_ut'
+    'body': """
+    (function () {
+
+    'use strict';
+
+    describe("${0:name}Controller", function () {
+
+        beforeEach(function () {
+            // always load nova module
+            module('nova');
+        });
+
+        var ctrl, scope;
+
+        beforeEach(function (inject(function ($controller, $rootScope))) {
+
+            // generate a valid scope
+            scope = $rootScope.$new();
+            // inject mocked dependencies for this controller
+            ctrl = $controller('${0:name}Controller', {
+
+            });
+
+        });
+
+    });
+
+})();
+
+    """
