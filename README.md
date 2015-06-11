@@ -1,7 +1,7 @@
 Angular Snippets
 ================
 
-If you are half the lazy I am and you do not like to waste time to typing the same boilerplate code over and over you are going to find this package useful. This is a collection of useful snippets based on the way I usually develop my apps. The following snippets are available:
+If you are half the lazy I am and you do not like to waste time typing the same boilerplate code over and over you are going to find this package useful. This is a collection of common snippets based on the way I usually develop my apps. The following snippets are available:
 
 
 ### Controllers
