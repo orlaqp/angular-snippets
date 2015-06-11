@@ -1,0 +1,31 @@
+'.source.js':
+  'Factory\'s Unit Test':
+    'prefix': '_utc'
+    'body': """
+    (function () {
+
+    'use strict';
+
+    describe("${0:name}Factory", function () {
+
+        beforeEach(function () {
+            // always load nova module
+            module('${1:module name}');
+        });
+
+        var _factory;
+
+        beforeEach(function (inject(function ($controller, $rootScope))) {
+
+            // inject mocked dependencies for this factory
+            _factory = $factory('${0:name}Controller', {
+
+            });
+
+        });
+
+    });
+
+})();
+
+    """

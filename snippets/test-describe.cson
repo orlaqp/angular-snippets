@@ -3,6 +3,27 @@
     'prefix': '_desc'
     'body': """
       describe('${1:description}', function() {
-          ${2:body}
+
+          beforeEach(function () {
+                // code that executes before every test
+          });
+
+          it('${1:description}', function () {
+
+              /*
+              *   SETUP
+              */
+
+              /*
+              *   EXECUTE
+              */
+
+              /*
+              *   TEST RESULTS
+              */
+
+          });
+
+
       });
       """

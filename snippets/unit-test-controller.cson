@@ -1,6 +1,6 @@
 '.source.js':
-  'Unit Test Stub':
-    'prefix': '_ut'
+  'Controller\'s Unit Test':
+    'prefix': '_utc'
     'body': """
     (function () {
 
@@ -10,17 +10,17 @@
 
         beforeEach(function () {
             // always load nova module
-            module('nova');
+            module('${1:module name}');
         });
 
-        var ctrl, scope;
+        var _ctrl, _scope;
 
         beforeEach(function (inject(function ($controller, $rootScope))) {
 
             // generate a valid scope
-            scope = $rootScope.$new();
+            _scope = $rootScope.$new();
             // inject mocked dependencies for this controller
-            ctrl = $controller('${0:name}Controller', {
+            _ctrl = $controller('${0:name}Factory
 
             });
 

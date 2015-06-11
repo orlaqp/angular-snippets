@@ -36,7 +36,10 @@ If you are half the lazy I am and you do not like to waste time to typing the sa
 
 ### Tests (Jasmine)
 
+* _utc -> Unit Test for a Controller
+* _utf -> Unit Test for a Factory
 * _desc -> Describe stub
+* _be -> Before Each stub
 * _it -> It stub
 
 ### HTML (Bootstrap 3)

@@ -1,0 +1,8 @@
+'.source.js':
+  'Before Each':
+    'prefix': '_be'
+    'body': """
+    beforeEach(function () {
+        // code that executes before every test
+    });
+    """
