@@ -8,19 +8,13 @@
                 // code that executes before every test
           });
 
-          it('${1:description}', function () {
+          it('${2:test}', function () {
 
-              /*
-              *   SETUP
-              */
+              // SETUP
 
-              /*
-              *   EXECUTE
-              */
-
-              /*
-              *   TEST RESULTS
-              */
+              // EXECUTE
+              
+              // TEST RESULTS
 
           });
 
