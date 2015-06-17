@@ -4,20 +4,11 @@
     'body': """
     it('${1:description}', function () {
 
-        /*
-        *   SETUP
-        */
+        // SETUP
 
+        // EXECUTE
 
-
-        /*
-        *   EXECUTE
-        */
-
-
-        /*
-        *   TEST RESULTS
-        */
+        // TEST RESULTS
 
     });
     """
