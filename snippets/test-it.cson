@@ -2,7 +2,7 @@
   'It':
     'prefix': '_it'
     'body': """
-    it('${1:description}', function () {
+    it('should ${1:description}', function () {
 
         // SETUP
 
