@@ -1,6 +1,6 @@
 '.source.js':
   'Factory\'s Unit Test':
-    'prefix': '_utc'
+    'prefix': '_utf'
     'body': """
     (function () {
 
