@@ -1,0 +1,6 @@
+'.source.js':
+  'Spy On':
+    'prefix': '_sp'
+    'body': """
+    spyOn(${1:object}, '${2:method}');
+    """
