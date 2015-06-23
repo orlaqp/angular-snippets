@@ -13,7 +13,7 @@
             module('${1:module name}');
         });
 
-        var _factory;
+        var _factory, _rootScope;
 
         beforeEach(inject(function (
             $injector,
