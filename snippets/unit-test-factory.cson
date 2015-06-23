@@ -8,23 +8,34 @@
 
     describe("${0:name}Factory", function () {
 
+        var _restangular = {
+            all: function () {},
+            one: function () {},
+            setBaseUrl: function () {},
+            customPUT: function () {},
+            setErrorInterceptor: function () {},
+            get: function() {}
+        };
+
         beforeEach(function () {
             // always load nova module
             module('${1:module name}');
+
+            $provide.value("Restangular", _restangular);
         });
 
-        var _factory, _rootScope;
+        var _factory, _rootScope, _q;
 
         beforeEach(inject(function (
             $injector,
-            $rootScope) {
+            $rootScope,
+            $q) {
 
             _rootScope = $rootScope;
+            _q = $q;
 
             // inject mocked dependencies for this factory
-            _factory = $injector.get('${0:name}Factory', {
-
-            });
+            _factory = $injector.get('${0:name}Factory');
 
         }));
 
