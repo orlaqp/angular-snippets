@@ -9,12 +9,22 @@
     describe("${0:name}Factory", function () {
 
         var _restangular = {
-            all: function () {},
-            one: function () {},
-            setBaseUrl: function () {},
-            customPUT: function () {},
+            all: jasmine.createSpy().and.callFake(function() {
+                return _restangular;
+            }),
+            one: jasmine.createSpy().and.callFake(function() {
+                return _restangular;
+            }),
+            setBaseUrl: jasmine.createSpy().and.callFake(function() {
+                return _restangular;
+            }),
+            customPUT: jasmine.createSpy().and.callFake(function() {
+                return _q.when(true);
+            }),
             setErrorInterceptor: function () {},
-            get: function() {}
+            get: jasmine.createSpy().and.callFake(function() {
+                return _q.when(true);
+            })
         };
 
         beforeEach(function () {
