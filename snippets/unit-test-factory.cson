@@ -31,7 +31,9 @@
             // always load nova module
             module('${1:module name}');
 
-            $provide.value("Restangular", _restangular);
+            module(function($provide) {
+                $provide.value("Restangular", _restangular);
+            });
         });
 
         var _factory, _rootScope, _q;
