@@ -41,6 +41,9 @@ If you are half the lazy I am and you do not like to waste time typing the same 
 * _desc -> Describe stub
 * _be -> Before Each stub
 * _it -> It stub
+* _sp -> spyOn stub
+* _spresolve -> jasmine spy with resolved promise
+* _spreject -> jasmine spy with rejected promise
 
 ### HTML (Bootstrap 3)
 

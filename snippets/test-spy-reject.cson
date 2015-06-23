@@ -1,0 +1,10 @@
+'.source.js':
+  'Rejected Spy':
+    'prefix': '_spreject'
+    'body': """
+    jasmine.createSpy('${1:name}').and.callFake(function() {
+        var d = _q.defer();
+        d.reject(${2:response});
+        return d.promise;
+    });
+    """

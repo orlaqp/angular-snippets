@@ -1,0 +1,8 @@
+'.source.js':
+  'Resolved Spy':
+    'prefix': '_spresolve'
+    'body': """
+    jasmine.createSpy('${1:name}').and.callFake(function() {
+        return _q.when(${2:response});
+    });
+    """
