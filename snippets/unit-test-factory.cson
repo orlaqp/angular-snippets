@@ -15,14 +15,18 @@
 
         var _factory;
 
-        beforeEach(function (inject(function ($controller, $rootScope))) {
+        beforeEach(inject(function (
+            $injector,
+            $rootScope) {
+
+            _rootScope = $rootScope;
 
             // inject mocked dependencies for this factory
-            _factory = $factory('${0:name}Controller', {
+            _factory = $injector.get('${0:name}Factory', {
 
             });
 
-        });
+        }));
 
     });
 
