@@ -15,19 +15,18 @@
 
         var _ctrl, _scope;
 
-        beforeEach(function (inject(function ($controller, $rootScope))) {
+        beforeEach(inject(function ($controller, $rootScope) {
 
             // generate a valid scope
             _scope = $rootScope.$new();
             // inject mocked dependencies for this controller
-            _ctrl = $controller('${0:name}Factory
+            _ctrl = $controller('${0:name}Controller');
 
-            });
-
-        });
+        }));
 
     });
 
 })();
+
 
     """
